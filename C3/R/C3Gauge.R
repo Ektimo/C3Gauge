@@ -39,7 +39,7 @@ C3Gauge <- function(message, width = NULL, height = NULL) {
 #' @name C3Gauge-shiny
 #'
 #' @export
-C3GaugeOutput <- function(outputId, width = '100%', height = '400px'){
+C3GaugeOutput <- function(outputId, width = '100%', height = '100%'){
   htmlwidgets::shinyWidgetOutput(outputId, 'C3Gauge', width, height, package = 'C3')
 }
 
