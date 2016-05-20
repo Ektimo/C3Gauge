@@ -16,7 +16,7 @@ HTMLWidgets.widget({
         var chart = c3.generate({
             bindto: el,
             data: {
-                json: x,
+                json: x['data'],
                 type: 'gauge'
             },
             gauge: {
@@ -26,15 +26,13 @@ HTMLWidgets.widget({
                 },
                 min: 0,
                 max: 1,
-                width: 15,
+                width: x['width'],
                 units: 'value' //this is only the text for the label
             },
 	          color:{
-	            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+	            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the four color levels for the percentage values.
               threshold: {
-              // unit: 'value', // percentage is default
-              // max: 200, // 100 is default
-            values: [.20, .40, .60, .80]
+            values: [.20, .40, .60, 1]
         }
 	  }
         });

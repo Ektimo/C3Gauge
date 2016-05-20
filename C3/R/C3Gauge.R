@@ -5,11 +5,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3Gauge <- function(message, width = NULL, height = NULL) {
+C3Gauge <- function(message, width = NULL, height = NULL, arcWidth=25) {
 
   # forward options using x
   x = list(
-    data = message
+    data = list(data=message),
+    width=arcWidth
   )
 
   # create widget
