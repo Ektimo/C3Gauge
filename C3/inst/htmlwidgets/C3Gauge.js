@@ -1,4 +1,4 @@
-HTMLWidgets.widget({
+HHTMLWidgets.widget({
 
   name: 'C3Gauge',
 
@@ -24,19 +24,19 @@ HTMLWidgets.widget({
                     //returning here the value and not the ratio
                     format: function(value, ratio){ return value;}
                 },
-                min: 0,
-                max: 1,
+                min: x['min'],
+                max: x['max'],
                 width: x['width'],
-                units: 'value' //this is only the text for the label
+                units: x['value'] //this is only the text for the label
             },
 	          color:{
-	            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the four color levels for the percentage values.
+	            pattern: [x['color'], x['color'], x['color'], x['color']], // the four color levels for the percentage values.
               threshold: {
-            values: [.20, .40, .60, 1]
+            values: [.50, .70, .90, 1]
         }
 	  }
         });
-              
+
       },
       resize: function(width, height) {
 

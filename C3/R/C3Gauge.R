@@ -5,22 +5,24 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3Gauge <- function(message, width = NULL, height = NULL, arcWidth=NULL) {
+C3Gauge <- function (message, width = NULL, height = NULL, arcWidth = NULL, minV=0,maxV=100, obrni=FALSE, text = '', values_all=c(0.50, 0.70, 0.90, 1), colors_all = c('#FF0000', '#F97600', '#F6C600', '#60B044'))
+{
+  # colors_all <- c('#FF0000', '#F97600', '#F6C600', '#60B044')
+  # values_all <- c(0.50, 0.70, 0.90, 1)
+  # if (length(values_all) != 4) {
+  # values_all <- rep(values_all,4)[1:4]
+  # warning("values_all recycled..count to 4!")
+  # }
+  if (obrni) colors_all <- rev(colors_all)
 
-  # forward options using x
-  x = list(
-    data = list(data=message),
-    width=arcWidth
-  )
+  # browser()
+  v <- (message-minV)/(maxV-minV)
+  indx <- first(which(v <= values_all))
+  if (is.na(indx)) indx <- length(values_all)
 
-  # create widget
-  htmlwidgets::createWidget(
-    name = 'C3Gauge',
-    x,
-    width = width,
-    height = height,
-    package = 'C3'
-  )
+  x = list(data = list(data = message), width = arcWidth,min=minV, max=maxV, color=colors_all[indx] , value = text)
+  htmlwidgets::createWidget(name = "C3Gauge", x, width = width,
+                            height = height, package = "C3")
 }
 
 #' Shiny bindings for C3Gauge
