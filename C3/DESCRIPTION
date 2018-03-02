@@ -1,7 +1,7 @@
 Package: C3
 Title: Plot a C3 Gauge
-Version: 0.0.0.9000
-Authors@R: person("Mikel", "Larrañaga", email = "mikel.larranaga@ehu.esu", role = c("aut", "cre"))
+Version: 0.0.1.9000
+Authors@R: person("Ektimo", "Ektimo", email = "info@ektimo.si", role = c("aut", "cre"))
 Description: Plots a C3 gauge. Based on https://github.com/FrissAnalytics/shinyJsTutorials
 Depends: R (>= 3.2.3)
 License: What license is it under?

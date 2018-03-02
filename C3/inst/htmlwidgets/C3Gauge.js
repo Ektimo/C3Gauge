@@ -1,4 +1,4 @@
-HHTMLWidgets.widget({
+HTMLWidgets.widget({
 
   name: 'C3Gauge',
 
